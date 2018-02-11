@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNewsMessageTable=newsMessages extends Migration
+class CreateLikesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,12 @@ class CreateNewsMessageTable=newsMessages extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('likes', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('login_id');
+            $table->integer('article_id');
+            $table->integer('count_of_likes');
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ class CreateNewsMessageTable=newsMessages extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('likes');
     }
 }

@@ -20,16 +20,34 @@
 		<div class="row">
 			<img src="{{asset('/images/main.jpeg')}}" class="img-responsive"> <!-- url/.../ -->
 		</div>
-		<div class="row text-center" id="header" style="background-color: #abcdef">
+		<!--<div class="row text-center" id="header" style="background-color: #abcdef">
 			<h1>News</h1>
-		</div>
+		</div>-->
 	@show 
 
 		@section('navbar')
 		<div class="row bg-info">
 			<div class="col-xs-6 col-sm-4" id="menu">
+				<!-- Menu -->
 				<ul>
-					<!-- Menu -->                  
+					<li><a href="{{ route('show_all_articles') }}">Главная</a></li>
+                    <li><a href="{{ url('/login') }}">Авторизоваться</a></li>
+                    <li><a href="{{ url('/register') }}">Зарегистрироваться</a></li>
+					<li><a href="{{ route('logout') }}">Выход</a></li>
+					<br>
+					<li><a href="<?php echo route('show_all_articles'); ?>">Посмотреть список новостей 
+				 (сортированный по дате добавления) </a></li>
+				 	<li><a href="<?php echo route('show_all_articles_by_likes'); ?>">Посмотреть список новостей 
+				 (сортированный по количеству лайков) </a></li>
+                    <li><a href="<?php echo route('add_article'); ?>">Добавить новость</a></li>
+                    <br>
+					<li><a href="{{ route('show_articles_with_rubric', ['rubric' => 'russia']) }}">Россия</a></li>
+					<li><a href="{{ route('show_articles_with_rubric', ['rubric' => 'world']) }}">Мир</a></li>
+					<li><a href="{{ route('show_articles_with_rubric', ['rubric' => 'economics']) }}">Экономика</a></li>
+					<li><a href="{{ route('show_articles_with_rubric', ['rubric' => 'science']) }}">Наука</a></li>
+					<li><a href="{{ route('show_articles_with_rubric', ['rubric' => 'culture']) }}">Культура</a></li>
+					<li><a href="{{ route('show_articles_with_rubric', ['rubric' => 'sport']) }}">Спорт</a></li>
+					<li><a href="{{ route('show_articles_with_rubric', ['rubric' => 'travel']) }}">Путешествия</a></li>
 				</ul>
 			</div>
 			<div class="col-xs-12 col-sm-8" style="text-align: justify" id="page">
