@@ -26,7 +26,7 @@
 
 	<form method="post">
 		{{ csrf_field() }} 
-		<a href="<?php echo route('get_update_article', ['nuber' => $row->id]); ?>">Отредактировать</a>
+		<a href="<?php echo route('get_update_article', ['number' => $row->id]); ?>">Отредактировать</a>
 	</form>
 	<a href="{{ route('show_article', ['number' => $row->id]) }}">Подробнее</a>
 

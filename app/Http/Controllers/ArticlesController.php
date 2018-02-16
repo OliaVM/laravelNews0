@@ -109,7 +109,8 @@ class ArticlesController extends Controller
 	
 	public function edit_article_get(Request $request, $number) {
 		$session_login_id = Auth::id();
-		if  ($number == $session_login_id) {
+		$login_id = $request->input('login_id'); 
+		if  ($login_id == $session_login_id) {
 			$news = DB::select("SELECT * FROM articles WHERE id=:id and login_id=:login_id", ['id' => $number, 'login_id' => $session_login_id]); 
 		    return view('layouts/news', ['name' => 'edit_news', 'news' => $news, 'number' => $number]);
 	    }
